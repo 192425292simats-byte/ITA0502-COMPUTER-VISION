@@ -1,13 +1,10 @@
 import cv2
-
 # Read the captured video
 video = cv2.VideoCapture("sample_video.mp4")   # Replace with your video file name
-
 # Check if the video is opened successfully
 if not video.isOpened():
     print("Error: Cannot open video!")
     exit()
-
 print("Controls:")
 print("N - Normal Speed")
 print("S - Slow Motion")
