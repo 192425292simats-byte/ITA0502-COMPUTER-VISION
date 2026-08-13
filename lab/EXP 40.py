@@ -1,6 +1,6 @@
 import cv2
 
-img=cv2.imread(r"C:\Users\Maruthi\Downloads\METAL.jpg")
+img=cv2.imread(r"C:\Users\sunil\Downloads\METAL.jpg")
 
 if img is None:
     print("Image not found")
