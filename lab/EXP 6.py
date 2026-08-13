@@ -1,30 +1,55 @@
 import cv2
+
 # Read the captured video
-video = cv2.VideoCapture("sample_video.mp4")   # Replace with your video file name
-# Check if the video is opened successfully
-if not video.isOpened():
-    print("Error: Cannot open video!")
-    exit()
-print("Controls:")
-print("N - Normal Speed")
-print("S - Slow Motion")
-print("F - Fast Motion")
-print("Q - Quit")
-# Default speed (Normal)
-delay = 30
+cap = cv2.VideoCapture("captured_video.mp4")
+
+# Normal speed
 while True:
-    ret, frame = video.read()
+    ret, frame = cap.read()
+
     if not ret:
         break
-    cv2.imshow("Video Player", frame)
-    key = cv2.waitKey(delay) & 0xFF
-    if key == ord('q'):
+
+    cv2.imshow("Normal Video", frame)
+
+    if cv2.waitKey(30) & 0xFF == ord('q'):
         break
-    elif key == ord('n'):
-        delay = 30      # Normal Speed
-    elif key == ord('s'):
-        delay = 100     # Slow Motion
-    elif key == ord('f'):
-        delay = 5       # Fast Motion
-video.release()
+
+cap.release()
+cv2.destroyAllWindows()
+
+
+# Slow motion
+cap = cv2.VideoCapture("C:\open cv\WIN_20260811_14_56_18_Pro.mp4")
+
+while True:
+    ret, frame = cap.read()
+
+    if not ret:
+        break
+
+    cv2.imshow("Slow Motion", frame)
+
+    if cv2.waitKey(100) & 0xFF == ord('q'):
+        break
+
+cap.release()
+cv2.destroyAllWindows()
+
+
+# Fast motion
+cap = cv2.VideoCapture("captured_video.mp4")
+
+while True:
+    ret, frame = cap.read()
+
+    if not ret:
+        break
+
+    cv2.imshow("Fast Motion", frame)
+
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+cap.release()
 cv2.destroyAllWindows()
