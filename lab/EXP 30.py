@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-img = cv2.imread(r"C:\Users\Maruthi\Downloads\CLIMATE.png",0)
+img = cv2.imread(r"C:\Users\sunil\Downloads\CLIMATE.png",0)
 
 kernel = np.ones((5,5),np.uint8)
 
