@@ -1,9 +1,22 @@
 import cv2
-import numpy as np
-img=cv2.imread(r"C:\Users\sunil\Downloads\METAL.jpg",0)
-kernel=np.ones((5,5),np.uint8)
-opening=cv2.morphologyEx(img,cv2.MORPH_OPEN,kernel)
-cv2.imshow("Original",img)
-cv2.imshow("Opening",opening)
+
+image = cv2.imread(r"C:\Users\sunil sharma\OneDrive\Desktop\OPENCV\tree (3).jpg")
+
+if image is None:
+    print("Image not found")
+    exit()
+
+gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+edges = cv2.Canny(gray, 100, 200)
+
+image = cv2.resize(image, (500, 400))
+edges = cv2.resize(edges, (500, 400))
+
+edges = cv2.cvtColor(edges, cv2.COLOR_GRAY2BGR)
+
+combined = cv2.hconcat([image, edges])
+
+cv2.imshow("Original | Edge", combined)
+
 cv2.waitKey(0)
 cv2.destroyAllWindows()
